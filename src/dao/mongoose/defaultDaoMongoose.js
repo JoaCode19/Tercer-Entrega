@@ -21,9 +21,7 @@ export class DaoMongoose {
   }
 
   async add(element) {
-    console.log(element);
     const pojo = toPojo(await this.#modelDb.create(element));
-    console.log(pojo);
     delete pojo._id;
     return pojo;
   }
@@ -55,15 +53,15 @@ export class DaoMongoose {
   }
 
   async updateOne(condition, data) {
-    const finder = await this.#modelDb.findOneById(condition);
-    if (!finder) {
-      throw new Error("Not Found");
-    }
-    const updated = await this.#modelDb
-      .findByIdAndUpdate(finder._id, data)
+    const updater = await this.#modelDb
+      .findOneAndUpdate({ id: condition }, data, {
+        new: true,
+        projection: { _id: 0 },
+      })
       .lean();
-    delete updated._id;
-    return updated;
+    if (!updater) throw new Error("NOT FOUND");
+    delete updater._id;
+    return updater;
   }
 
   async updateMany(condition, data) {

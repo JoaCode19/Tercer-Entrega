@@ -3,8 +3,8 @@ import { userService } from "../../../services/users.service.js";
 
 export async function postUsuarios(req, res, next) {
   try {
-    console.log(req.body);
     const userCreated = await userService.registrar(req.body);
+    req.session.user = userCreated;
     res.cookie("jwt_authorization", encriptarJWT(userCreated), {
       signed: true,
       httpOnly: true,

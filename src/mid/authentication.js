@@ -16,7 +16,6 @@ import { userService } from "../services/users.service.js";
 passport.use(
   "local",
   new Strategy({ usernameField: "email" }, async (username, password, done) => {
-    console.log(username);
     const user = await userRepository.findOne({
       email: username,
     });
@@ -67,6 +66,7 @@ passport.use(
           });
           await cmg.delAllProductsInCart(user.cart);
           req.session.user = user;
+          req.user = user;
         }
       } catch {
         done(new ErrorAuth());
@@ -74,6 +74,7 @@ passport.use(
       done(null, {
         name: req.session.user.first_name + " " + req.session.user.last_name,
         email: req.session.user.email,
+        role: req.session.user.role,
         age: req.session.user.age,
         cart: req.session.user.cart,
       });

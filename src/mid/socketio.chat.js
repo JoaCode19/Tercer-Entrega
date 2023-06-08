@@ -4,7 +4,7 @@ import Messages from "../models/Messages.model.js";
 
 export async function socketChat(clientSocket) {
   clientSocket.on("nuevoMensaje", async (mensaje) => {
-    await mmg.saveMsg(new Messages(mensaje).datos());
+    await mmg.saveMsg(new Messages(mensaje).dto());
     const mensajes = await mmg.findMsg();
     const mensajesParaFront = mensajes.map((m) => ({
       ...m,

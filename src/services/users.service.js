@@ -28,9 +28,7 @@ class UserService {
             : "user",
         cart: UserData.cart,
       };
-      console.log(`data : ${JSON.stringify(datasuser)}`);
       const user = new Users(datasuser);
-      console.log(`user:${JSON.stringify(user)}`);
       const registrado = await this.repositorie.add(user.dto());
       return registrado;
     } catch (error) {

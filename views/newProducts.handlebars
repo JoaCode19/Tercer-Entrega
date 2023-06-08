@@ -17,8 +17,9 @@
 
 <form id="product-form">
   <h2>{{Head}}</h2><br />
-  <div class="form-group columna-1">
+  <div class="form-group columna-1" id="buttoner">
     <label for="code-input">Code</label>
+    <input type="text" class="id-data" id="id-data" />
     <input
       type="text"
       id="code-input"
@@ -26,9 +27,26 @@
       name="code"
       required
     />
-    <button class="sercher"><i
-        class="fa-solid fa-magnifying-glass"
-      ></i></button>
+    <button
+      class="btncrud sercher"
+      id="sercher-btn"
+      onclick="SerchProduct(document.getElementById('code-input').value)"
+      type="button"
+    ><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button
+      class="btncrud deleter"
+      id="deleter-btn"
+      disabled
+      onclick="delProduct(document.getElementById('id-data').value)"
+      type="button"
+    ><i class="fa-solid fa-trash"></i></button>
+    <button
+      class="btncrud updater"
+      id="updater-btn"
+      disabled
+      onclick="updProduct()"
+      type="button"
+    ><i class="fa-solid fa-pen-to-square"></i></button>
 
   </div>
   <div class="form-group columna-1">
@@ -93,8 +111,8 @@
     />
   </div>
 
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Save</button>
+  <div class="form-group" id="buttsaver">
+    <button type="submit" class="btn btn-primary" id="save">Save</button>
   </div>
 </form>
 

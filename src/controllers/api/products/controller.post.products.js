@@ -4,7 +4,7 @@ import { productsRepository } from "../../../repositories/product.repositorie.js
 
 export async function postProductController(req, res, next) {
   try {
-    console.log(req.body.thumbnail);
+    console.log(req.body);
     const prod = {
       title: req.body.title,
       description: req.body.description,
@@ -16,10 +16,10 @@ export async function postProductController(req, res, next) {
     };
     console.log(prod);
     const producto = new Products(prod);
+    console.log(producto.dto());
     const result = await productsRepository.add(producto.dto());
-    console.log(result);
     await socketFn();
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }

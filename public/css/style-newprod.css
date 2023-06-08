@@ -145,7 +145,7 @@ button[type="submit"] {
   width: 50% !important;
 }
 
-.sercher {
+.btncrud {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
@@ -153,4 +153,30 @@ button[type="submit"] {
   border-radius: 10px;
   height: 32px;
   width: 35px;
+}
+#buttoner :disabled {
+  background-color: grey;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  height: 32px;
+  width: 35px;
+}
+
+#buttsaver :disabled{
+    background-color: grey;
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
+
+.form-group:disabled {
+  background-color: grey;
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
+
+.id-data {
+  display: none;
 }

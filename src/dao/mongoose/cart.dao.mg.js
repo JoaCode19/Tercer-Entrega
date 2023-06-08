@@ -94,8 +94,6 @@ export default class CartsMongoose {
 
   async updateCart(cid, updcart) {
     const cart = await this.getCartbyId(cid);
-    console.log(cart);
-    console.log(updcart);
     const updated = await this.#cartsDb.findByIdAndUpdate(cart._id, {
       products: updcart,
     });

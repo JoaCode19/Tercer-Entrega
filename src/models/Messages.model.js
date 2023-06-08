@@ -21,7 +21,7 @@ export default class Messages {
   }
 
   //metodos para acceder a copia y proteger original
-  datos() {
+  dto() {
     return {
       timestamp: this.#timestamp,
       autor: this.#autor,

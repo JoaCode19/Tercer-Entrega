@@ -16,6 +16,7 @@ import { COOKIE_KEY } from "../config/config.js";
 //mid
 import { errorFn } from "../mid/error.js";
 import { socketFn } from "../mid/soketio.rt.js";
+import { socketChat } from "../mid/socketio.chat.js";
 //DDBB
 import { conectar } from "../dao/mongoose/mongoose.js";
 
@@ -58,5 +59,6 @@ export const io = new socketIOServer(httpServer);
 
 io.on("connection", async (clientSocket) => {
   console.log(`New connection: ${clientSocket.id}`);
+  await socketChat(clientSocket);
   await socketFn();
 });

@@ -1,7 +1,9 @@
+import { userRepository } from "../../../repositories/users.repository.js";
 import { encriptarJWT } from "../../../utils/cripto.js";
 
 export function getCurrentSessionController(req, res, next) {
-  res.json(req.user);
+  const userws = userRepository.findMany();
+  res.json(userws);
 }
 
 export async function postSesiones(req, res, next) {

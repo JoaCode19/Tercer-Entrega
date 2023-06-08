@@ -9,6 +9,8 @@ import {
 } from "../../controllers/views/controller.all.views.js";
 import { authJwtView } from "../../mid/authentication.js";
 import { soloRol } from "../../mid/authorization.js";
+import { PATH_CHAT } from "../../config/config.js";
+import { mmg } from "../../dao/mongoose/messages.manager.mg.js";
 
 export const viewsRouter = Router();
 

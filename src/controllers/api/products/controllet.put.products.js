@@ -5,6 +5,7 @@ export async function updateProduct(req, res, next) {
   let upd;
   try {
     upd = { ...req.body };
+    console.log(upd);
   } catch (error) {
     return next(error);
   }
