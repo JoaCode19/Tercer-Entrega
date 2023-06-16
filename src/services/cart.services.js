@@ -14,7 +14,7 @@ class CartService {
     }
     try {
       let cartqt = 0;
-      const cart = await cartRepository.getCartbyId(datacart);
+      const cart = await cartRepository.getCartById(datacart);
       const productsincart = cart.products;
       const producttocharge = productsincart.find(
         (p) => p.product === dataprod
@@ -44,7 +44,7 @@ class CartService {
       if (error.message === "Not Found") throw new Error("Invalid Product");
     }
     try {
-      const productupd = await cartRepository.updProductinCart(
+      const productupd = await cartRepository.updProductInCart(
         datacart,
         dataprod,
         info

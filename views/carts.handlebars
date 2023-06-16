@@ -40,10 +40,11 @@
         </div>
       {{/each}}
     </section>
-    <button id="pay-button">Pay My Order</button>
+    <button id="pay-button" onclick="payOrder(document.getElementById('cartref').href)">Pay My Order</button>
   {{else}}
     <p class="">No Products yet</p>
   {{/if}}
 </main>
 
 <script src="/public/js/removeprod.js"></script>
+<script src="/public/js/payorder.js"></script>

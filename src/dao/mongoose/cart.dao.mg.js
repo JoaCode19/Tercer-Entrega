@@ -32,7 +32,7 @@ export default class CartsMongoose {
     return pojo;
   }
 
-  async getCartbyId(cid) {
+  async getCartById(cid) {
     const cart = await this.#cartsDb.findOne({ id: cid });
     if (!cart) throw new Error("Not Found");
     return cart;
@@ -72,7 +72,7 @@ export default class CartsMongoose {
   }
 
   async addProductInCart(cid, pid, qt) {
-    const cart = await this.getCartbyId(cid);
+    const cart = await this.getCartById(cid);
     const products = cart.products;
     const serchprod = products.find((p) => p.product === pid);
     if (!serchprod) {
@@ -85,7 +85,7 @@ export default class CartsMongoose {
   }
 
   async delProductInCart(cid, pid) {
-    const cart = await this.getCartbyId(cid);
+    const cart = await this.getCartById(cid);
     const products = cart.products;
     const deleter = products.filter((p) => p.product !== pid);
     await this.#cartsDb.findByIdAndUpdate(cart._id, { products: deleter });
@@ -93,15 +93,15 @@ export default class CartsMongoose {
   }
 
   async updateCart(cid, updcart) {
-    const cart = await this.getCartbyId(cid);
+    const cart = await this.getCartById(cid);
     const updated = await this.#cartsDb.findByIdAndUpdate(cart._id, {
       products: updcart,
     });
     return updated;
   }
 
-  async updProductinCart(cid, pid, updquantity) {
-    const cart = await this.getCartbyId(cid);
+  async updProductInCart(cid, pid, updquantity) {
+    const cart = await this.getCartById(cid);
     const products = cart.products;
     const serchprod = products.find((p) => p.product === pid);
     if (!serchprod) {
@@ -115,13 +115,13 @@ export default class CartsMongoose {
   }
 
   async delAllProductsInCart(cid) {
-    const cart = await this.getCartbyId(cid);
+    const cart = await this.getCartById(cid);
     await this.#cartsDb.findByIdAndUpdate(cart._id, { products: [] });
     return cart;
   }
 
   async deleteCart(cid) {
-    const cart = await this.getCartbyId(cid);
+    const cart = await this.getCartById(cid);
     await this.#cartsDb.findByIdAndRemove(cart._id);
   }
 }

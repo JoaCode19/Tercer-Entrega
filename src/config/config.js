@@ -30,6 +30,7 @@ const PATH_CARTS = process.env.PATH_CARTS;
 const PATH_LOGIN = process.env.PATH_LOGIN;
 const PATH_REGIS = process.env.PATH_REGIS;
 const PATH_CHAT = process.env.PATH_CHAT;
+const PATH_TICKET = process.env.PATH_TICKET;
 
 export {
   PORT,
@@ -46,4 +47,5 @@ export {
   PATH_PRODUCT,
   PATH_REGIS,
   PATH_CHAT,
+  PATH_TICKET,
 };

@@ -29,7 +29,7 @@ if (
 ) {
   formCargaProducts.addEventListener("submit", async (event) => {
     event.preventDefault();
-    // const formData = new FormData();
+
     const data = {
       code: inputCode.value,
       title: inputTitle.value,
@@ -39,11 +39,7 @@ if (
       price: inputPrice.value,
       thumbnail: inputThumbnail.value,
     };
-    // formData.forEach((value, key) => {
-    //   console.log(key);
-    //   console.log(value);
-    //   data[key] = value;
-    // });
+
     console.log(data);
     if (!inputId.value) {
       const { status } = await fetch("api/products", {
@@ -63,6 +59,7 @@ if (
           color: "#fff",
           confirmButtonColor: "#01657ed1",
         });
+        window.location.href = "/newproducts";
       } else {
         // @ts-ignore
         Swal.fire({
@@ -94,6 +91,7 @@ if (
           color: "#fff",
           confirmButtonColor: "#01657ed1",
         });
+        window.location.href = "/newproducts";
       } else {
         // @ts-ignore
         Swal.fire({
@@ -189,6 +187,7 @@ async function delProduct(id) {
       color: "#fff",
       confirmButtonColor: "#01657ed1",
     });
+    window.location.href = "/newproducts";
   } else {
     // @ts-ignore
     Swal.fire({

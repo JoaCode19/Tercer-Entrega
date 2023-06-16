@@ -8,27 +8,27 @@ import { getProductIdController } from "../../controllers/api/products/controlle
 import { updateProduct } from "../../controllers/api/products/controllet.put.products.js";
 import { deleteProduct } from "../../controllers/api/products/controllet.delete.products.js";
 
-export const appProducts = Router();
-appProducts.use(express.json());
-appProducts.use(express.urlencoded({ extended: true }));
+export const producstRouter = Router();
+producstRouter.use(express.json());
+producstRouter.use(express.urlencoded({ extended: true }));
 
 //agregar products a la persistencia en archivo desde el servidor
 
-appProducts.post("/", postProductController);
+producstRouter.post("/", postProductController);
 
 // consultar productos todos o con limite desde el servidor
 
-appProducts.get("/", getProductsController);
+producstRouter.get("/", getProductsController);
 
 //obtener productos por code
-appProducts.get("/code/:pcd", getProductCodeController);
+producstRouter.get("/code/:pcd", getProductCodeController);
 
 //obtener producto por ID
 
-appProducts.get("/:pid", getProductIdController);
+producstRouter.get("/:pid", getProductIdController);
 
 //editar un producto
-appProducts.put("/:pid", updateProduct);
+producstRouter.put("/:pid", updateProduct);
 
 //eliminar un producto
-appProducts.delete("/:pid", deleteProduct);
+producstRouter.delete("/:pid", deleteProduct);

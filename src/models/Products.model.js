@@ -23,6 +23,8 @@ export default class Products {
     this.#category = this.validateCategory(category);
   }
 
+  //validations
+
   validatePrice(price) {
     if (typeof price !== "number" || price <= 0) {
       throw new Error("Price must be a number greater than 0.");
@@ -38,7 +40,7 @@ export default class Products {
   }
 
   validateCode(code) {
-    if (typeof code !== "string" || code.length > 6) {
+    if (typeof code !== "string" || code.length > 7) {
       throw new Error(
         "Code must be a string with a maximum length of 6 characters."
       );

@@ -37,4 +37,4 @@ class UserService {
   }
 }
 
-export const userService = new UserService(userRepository);
+export const userService = new UserService(userRepository)

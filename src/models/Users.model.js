@@ -26,7 +26,7 @@ export default class Users {
     this.#first_name = this.validateFirstName(first_name);
     this.#last_name = this.validateLastName(last_name);
     this.#age = this.validateAge(age);
-    this.#password = this.validatePassword(password);
+    this.#password = this.validatePassword(hasher(password));
     this.#role = this.validateRole(role);
     this.#cart = this.validateCart(cart);
   }

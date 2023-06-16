@@ -11,6 +11,7 @@ export async function postSesiones(req, res, next) {
     signed: true,
     httpOnly: true,
   });
+
   res.sendStatus(201);
 }
 
